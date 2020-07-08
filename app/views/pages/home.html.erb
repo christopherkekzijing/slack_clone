@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Chatrooms</h1>
+<% @chatrooms.each do |chatroom| %>
+<% if chatroom.private? && current.user.admin == true %>
+  <h2><%= link_to chatroom.name, chatroom_path(chatroom) %></h2>
+<% end %>
+  <% else %>
+  <h2><%= link_to chatroom.name, chatroom_path(chatroom) %></h2>
+  <% end %>
+<% end %>
